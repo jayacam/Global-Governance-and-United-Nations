@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>GG UN</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Governance & The United Nations - Interactive Study Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .serif-heading {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+        
+        /* Tooltip Styling - Pure CSS with data attributes */
+        .term {
+            position: relative;
+            display: inline;
+            color: #1e40af;
+            font-weight: 600;
+            border-bottom: 2px dotted #3b82f6;
+            cursor: help;
+            transition: all 0.2s ease;
+        }
+        
+        .term:hover {
+            color: #1e3a8a;
+            background-color: rgba(59, 130, 246, 0.1);
+            border-radius: 2px;
+        }
+        
+        .term::after {
+            content: attr(data-def);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.95);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.4;
+            width: max-content;
+            max-width: 280px;
+            white-space: normal;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            pointer-events: none;
+        }
+        
+        .term::before {
+            content: "";
+            position: absolute;
+            bottom: 115%;
+            left: 50%;
+            transform: translateX(-50%) scale(0.95);
+            border-width: 6px;
+            border-style: solid;
+            border-color: #1e293b transparent transparent transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+        }
+        
+        .term:hover::after,
+        .term:hover::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+        }
+        
+        /* Mobile touch support - click to show */
+        .term.active::after,
+        .term.active::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+        }
+        
+        /* Card hover effects */
+        .content-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #3b82f6;
+        }
+        
+        /* Navigation pill active state */
+        .nav-pill {
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .nav-pill.active {
+            background: #3b82f6;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Progress bar */
+        .progress-bar {
+            background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+            height: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Section numbering */
+        .section-number {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+        
+        /* Collapsible sections - FIXED */
+        .collapsible-content {
+            display: block;
+            overflow: visible;
+        }
+        
+        .collapsible-content.collapsed {
+            display: none;
+        }
+        
+        .chevron {
+            transition: transform 0.3s ease;
+        }
+        
+        .chevron.rotated {
+            transform: rotate(180deg);
+        }
+        
+        /* Highlight animation for search */
+        @keyframes highlight {
+            0% { background-color: rgba(253, 224, 71, 0.5); }
+            100% { background-color: transparent; }
+        }
+        
+        .highlight-match {
+            animation: highlight 2s ease;
+            background-color: rgba(253, 224, 71, 0.3);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        /* Print styles */
+        @media print {
+            .no-print { display: none; }
+            .content-card { break-inside: avoid; }
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .term::after {
+                max-width: 200px;
+                font-size: 0.75rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased pb-20">
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-slate-200 z-50">
+        <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        UN
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-slate-900 serif-heading">Global Governance & The United Nations</h1>
+                        <p class="text-xs text-slate-500">Interactive Study Guide</p>
+                    </div>
+                </div>
+                
+                <!-- Search -->
+                <div class="hidden md:flex items-center gap-4">
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="Search content..." 
+                            class="pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64 transition-all">
+                        <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <button onclick="window.print()" class="no-print p-2 text-slate-500 hover:text-blue-600 transition-colors" title="Print">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Pills -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-3 overflow-x-auto no-print">
+            <nav class="flex gap-2 min-w-max">
+                <button onclick="scrollToSection('intro')" class="nav-pill px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-100 active">Introduction</button>
+                <button onclick="scrollToSection('governance')" class="nav-pill px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-100">I. Global Governance</button>
+                <button onclick="scrollToSection('treaties')" class="nav-pill px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-100">II. Treaties</button>
+                <button onclick="scrollToSection('npt')" class="nav-pill px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-100">III. NPT</button>
+                <button onclick="scrollToSection('un')" class="nav-pill px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-100">IV. United Nations</button>
+                <button onclick="scrollToSection('league')" class="nav-pill px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-100">V. League of Nations</button>
+                <button onclick="scrollToSection('organs')" class="nav-pill px-4 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:bg-slate-100">VI. UN Organs</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Introduction Card -->
+        <section id="intro" class="content-card bg-white rounded-2xl p-8 shadow-sm">
+            <div class="flex items-start gap-4 mb-6">
+                <div class="section-number">0</div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 serif-heading mb-2">Global Governance and the United Nations</h2>
+                    <p class="text-slate-600">A comprehensive guide to international cooperation, institutions, and legal frameworks.</p>
+                </div>
+            </div>
+            
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-4">
+                <p class="text-sm text-blue-800 font-medium mb-1">How to use this guide:</p>
+                <p class="text-sm text-blue-700">Hover over or tap <span class="term inline-block" data-def="Click or hover on dotted underlined words to see definitions">technical terms</span> (dotted underlined words) to see definitions. Use the navigation above to jump between sections.</p>
+            </div>
+        </section>
+
+        <!-- Section I: Global Governance -->
+        <section id="governance" class="content-card bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between cursor-pointer no-print hover:bg-slate-50 transition-colors" onclick="toggleSection('governance-content', this)">
+                <div class="flex items-center gap-4">
+                    <div class="section-number">1</div>
+                    <h2 class="text-xl font-bold text-slate-900 serif-heading">Global Governance</h2>
+                </div>
+                <svg class="chevron w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            
+            <div id="governance-content" class="collapsible-content">
+                <div class="p-6 space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            Definition
+                        </h3>
+                        <p class="text-slate-700 leading-relaxed pl-4 border-l-2 border-slate-200">
+                            <span class="term" data-def="The system of institutions, agreements, and processes through which countries manage global problems">Global governance</span> is the system of institutions, agreements, and processes through which countries (and other actors) manage problems that affect the whole world. It does not mean a "world government." It means cooperation across borders to deal with shared issues like conflict, climate change, trade, pandemics, and human rights.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            States vs. Countries (and why the UN often says "states")
+                        </h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                <h4 class="font-semibold text-slate-900 mb-2">Country (common meaning)</h4>
+                                <p class="text-sm text-slate-600 mb-2">A place or nation that people recognize as a distinct area with its own identity (culture, population, territory).</p>
+                                <p class="text-xs text-slate-500 italic">Example: "The Philippines is a country."</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg border border-slate-200">
+                                <h4 class="font-semibold text-slate-900 mb-2">State (international law meaning)</h4>
+                                <p class="text-sm text-slate-600 mb-2">A political entity that has a government and is recognized as having authority over a territory and population, and can make official relations with other states (like signing treaties).</p>
+                                <p class="text-xs text-slate-500 italic">Example: "The Philippines is a UN member state and can sign treaties."</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-100 rounded-lg p-4 mb-4">
+                            <p class="text-sm font-semibold text-blue-900 mb-1">Simple way to remember:</p>
+                            <ul class="text-sm text-blue-800 space-y-1 list-disc list-inside">
+                                <li>"Country" is the common word.</li>
+                                <li>"State" is the legal/political word used in diplomacy.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                            <p class="text-sm font-semibold text-amber-900 mb-1">Example where the difference matters:</p>
+                            <p class="text-sm text-amber-800">A territory might be called a "country" by some people informally, but may not be a <span class="term" data-def="A state with supreme authority within its territory, recognized by other states">sovereign state</span> recognized widely enough to join the UN as a member state.</p>
+                            <p class="text-sm text-amber-800 mt-2">In the UN, membership is for states, because the UN is built on legal recognition and official diplomatic responsibilities (treaty-making, voting, obligations).</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            How global governance works in real life
+                        </h3>
+                        <p class="text-slate-700 mb-4">Global governance operates through a mix of formal and informal cooperation:</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex gap-4 items-start">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-900">Formal institutions</h4>
+                                    <p class="text-sm text-slate-600">Example: the United Nations (UN) holds meetings, passes decisions, organizes peacekeeping, supports humanitarian work.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-900">Treaties (international agreements)</h4>
+                                    <p class="text-sm text-slate-600">Example: countries sign treaties to limit nuclear weapons or reduce carbon emissions.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-900">Smaller global groups</h4>
+                                    <p class="text-sm text-slate-600">Example: the <span class="term" data-def="Group of 20 major economies that coordinate on global finance and economic stability">G20</span> gathers major economies to coordinate on global finance and economic stability.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-900">Non-government actors (NGOs and companies)</h4>
+                                    <p class="text-sm text-slate-600 mb-2"><span class="term" data-def="Nonprofit groups that operate independently of governments, often advocating for specific causes">NGOs</span> (nonprofit groups) and businesses influence global decisions through advocacy, expertise, funding, and implementation.</p>
+                                    <p class="text-sm text-slate-500 italic">Example: NGOs help deliver humanitarian aid during crises; companies may shape global supply chains and climate commitments.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section II: Treaties -->
+        <section id="treaties" class="content-card bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between cursor-pointer no-print hover:bg-slate-50 transition-colors" onclick="toggleSection('treaties-content', this)">
+                <div class="flex items-center gap-4">
+                    <div class="section-number">2</div>
+                    <h2 class="text-xl font-bold text-slate-900 serif-heading">Treaties</h2>
+                </div>
+                <svg class="chevron w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            
+            <div id="treaties-content" class="collapsible-content">
+                <div class="p-6 space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            Definition
+                        </h3>
+                        <p class="text-slate-700 leading-relaxed pl-4 border-l-2 border-slate-200">
+                            A <span class="term" data-def="A formal, written agreement between countries (states) that is legally binding once formally accepted">treaty</span> is a formal, written agreement between countries (states). In international law, a treaty is generally legally binding once a country formally accepts it (often through a process called <span class="term" data-def="The formal process by which a state confirms its consent to be bound by a treaty">ratification</span>, depending on the country's legal system).
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            Purpose of treaties
+                        </h3>
+                        <p class="text-slate-700 mb-3">Treaties are used to:</p>
+                        <ul class="space-y-2 pl-4">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="text-slate-700">Set shared rules (what countries must do or must not do)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="text-slate-700">Reduce conflict</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span class="text-slate-700">Solve global problems (environment, weapons, trade, human rights)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            Examples
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">CLIMATE</span>
+                                    <h4 class="font-semibold text-slate-900">Paris Agreement</h4>
+                                </div>
+                                <p class="text-sm text-slate-600">Countries commit to actions that reduce greenhouse gas emissions to address climate change.</p>
+                            </div>
+                            
+                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded">NUCLEAR</span>
+                                    <h4 class="font-semibold text-slate-900">Nuclear Non-Proliferation Treaty (NPT)</h4>
+                                </div>
+                                <p class="text-sm text-slate-600">Limits the spread of nuclear weapons, supports disarmament goals, and allows peaceful nuclear energy under monitoring.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section III: NPT -->
+        <section id="npt" class="content-card bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between cursor-pointer no-print hover:bg-slate-50 transition-colors" onclick="toggleSection('npt-content', this)">
+                <div class="flex items-center gap-4">
+                    <div class="section-number">3</div>
+                    <h2 class="text-xl font-bold text-slate-900 serif-heading">Proliferation and the Nuclear Non-Proliferation Treaty (NPT)</h2>
+                </div>
+                <svg class="chevron w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            
+            <div id="npt-content" class="collapsible-content">
+                <div class="p-6 space-y-6">
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg">
+                        <h3 class="text-lg font-semibold text-red-900 mb-2">Definition of proliferation</h3>
+                        <p class="text-slate-700"><span class="term" data-def="The spread or increase of something, particularly weapons or technologies">Proliferation</span> means the spread or increase of something.</p>
+                        <p class="text-slate-700 mt-2"><strong>Nuclear proliferation</strong> means more countries gaining or developing nuclear weapons.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-3 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            What the NPT is
+                        </h3>
+                        <p class="text-slate-700 leading-relaxed pl-4 border-l-2 border-slate-200">
+                            The <span class="term" data-def="Treaty on the Non-Proliferation of Nuclear Weapons, designed to prevent the spread of nuclear weapons and weapons technology">Treaty on the Non-Proliferation of Nuclear Weapons (NPT)</span> is a major global treaty designed to reduce the risk of nuclear war by limiting the spread of nuclear weapons and encouraging safer nuclear cooperation.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            What happens under the NPT (the "3 pillars")
+                        </h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-5 rounded-xl border border-blue-200">
+                                <div class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold mb-3">1</div>
+                                <h4 class="font-bold text-slate-900 mb-2">Non-proliferation</h4>
+                                <ul class="text-sm text-slate-700 space-y-2">
+                                    <li>• Countries without nuclear weapons agree not to acquire or build them.</li>
+                                    <li>• Countries with nuclear weapons agree not to help others get them.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-5 rounded-xl border border-green-200">
+                                <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mb-3">2</div>
+                                <h4 class="font-bold text-slate-900 mb-2">Disarmament</h4>
+                                <p class="text-sm text-slate-700">Nuclear-armed states commit to working toward reducing nuclear weapons over time.</p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-xl border border-purple-200">
+                                <div class="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold mb-3">3</div>
+                                <h4 class="font-bold text-slate-900 mb-2">Peaceful use of nuclear energy</h4>
+                                <p class="text-sm text-slate-700">Countries can use nuclear technology for peaceful purposes (like electricity), with safeguards/monitoring.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-lg p-4 border border-slate-200">
+                        <h4 class="font-semibold text-slate-900 mb-2 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Real-life example of function
+                        </h4>
+                        <p class="text-sm text-slate-600">The treaty supports international inspection and monitoring systems to reduce secret nuclear weapons development, while still allowing peaceful nuclear programs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section IV: United Nations -->
+        <section id="un" class="content-card bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between cursor-pointer no-print hover:bg-slate-50 transition-colors" onclick="toggleSection('un-content', this)">
+                <div class="flex items-center gap-4">
+                    <div class="section-number">4</div>
+                    <h2 class="text-xl font-bold text-slate-900 serif-heading">United Nations (UN)</h2>
+                </div>
+                <svg class="chevron w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            
+            <div id="un-content" class="collapsible-content">
+                <div class="p-6 space-y-6">
+                    <div class="flex items-start gap-4 bg-blue-600 text-white p-6 rounded-xl">
+                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">What the UN is</h3>
+                            <p class="text-blue-100 leading-relaxed">The United Nations is a global organization founded in 1945 after World War II. Its purpose is to prevent future large-scale wars, promote international cooperation, and address global problems like poverty, disease, conflict, and human rights abuses.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            Major events that led to its creation
+                        </h3>
+                        
+                        <div class="relative border-l-2 border-slate-200 ml-4 space-y-6">
+                            <div class="relative pl-8">
+                                <div class="absolute -left-2 top-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow"></div>
+                                <h4 class="font-semibold text-slate-900">World War II (1939–1945)</h4>
+                                <p class="text-sm text-slate-600 mt-1">Massive destruction convinced many leaders that a stronger international organization was needed to prevent another world war.</p>
+                            </div>
+                            <div class="relative pl-8">
+                                <div class="absolute -left-2 top-1 w-4 h-4 bg-amber-500 rounded-full border-2 border-white shadow"></div>
+                                <h4 class="font-semibold text-slate-900">Earlier failure of the League of Nations</h4>
+                                <p class="text-sm text-slate-600 mt-1">Showed what happens when an international organization lacks power and participation.</p>
+                            </div>
+                            <div class="relative pl-8">
+                                <div class="absolute -left-2 top-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow"></div>
+                                <h4 class="font-semibold text-slate-900">UN Charter (1945)</h4>
+                                <p class="text-sm text-slate-600 mt-1">Countries met to create the founding document that set the UN's goals, principles, and structure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section V: League of Nations -->
+        <section id="league" class="content-card bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between cursor-pointer no-print hover:bg-slate-50 transition-colors" onclick="toggleSection('league-content', this)">
+                <div class="flex items-center gap-4">
+                    <div class="section-number">5</div>
+                    <h2 class="text-xl font-bold text-slate-900 serif-heading">League of Nations (Background)</h2>
+                </div>
+                <svg class="chevron w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            
+            <div id="league-content" class="collapsible-content">
+                <div class="p-6 space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-slate-50 p-5 rounded-xl">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-3 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                                What it was
+                            </h3>
+                            <p class="text-slate-700">The League of Nations was created after World War I to maintain peace through cooperation and diplomacy.</p>
+                        </div>
+                        
+                        <div class="bg-red-50 p-5 rounded-xl border border-red-100">
+                            <h3 class="text-lg font-semibold text-red-900 mb-3 flex items-center gap-2">
+                                <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                                Why it failed
+                            </h3>
+                            <ul class="space-y-2 text-sm text-red-800">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span>Key powers did not participate fully (notably, the U.S. never joined).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span>It lacked strong enforcement power.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span>When major aggressor states ignored it, the League could not stop them.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-red-500 mt-1">•</span>
+                                    <span>It failed to prevent World War II.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section VI: Six Main Organs -->
+        <section id="organs" class="content-card bg-white rounded-2xl shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between cursor-pointer no-print hover:bg-slate-50 transition-colors" onclick="toggleSection('organs-content', this)">
+                <div class="flex items-center gap-4">
+                    <div class="section-number">6</div>
+                    <h2 class="text-xl font-bold text-slate-900 serif-heading">Six Main Organs of the United Nations</h2>
+                </div>
+                <svg class="chevron w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            
+            <div id="organs-content" class="collapsible-content">
+                <div class="p-6 space-y-8">
+                    
+                    <!-- Organ 1: General Assembly -->
+                    <div class="border border-slate-200 rounded-xl overflow-hidden">
+                        <div class="bg-blue-50 p-4 border-b border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold">1</div>
+                                <h3 class="text-lg font-bold text-slate-900">General Assembly (GA)</h3>
+                            </div>
+                        </div>
+                        <div class="p-5 space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Definition & composition</h4>
+                                <p class="text-slate-700">The main "discussion and decision forum" of the UN. All 193 <span class="term" data-def="States that are members of the United Nations, currently totaling 193">member states</span> are represented. Each member has one vote.</p>
+                            </div>
+                            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                                <p class="text-sm font-semibold text-amber-900">Core distinction:</p>
+                                <p class="text-sm text-amber-800">Most inclusive UN organ: every member state participates equally.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Functions</h4>
+                                <ul class="space-y-1 text-sm text-slate-700 list-disc list-inside">
+                                    <li>Discusses major global issues (peace, development, human rights).</li>
+                                    <li>Approves the UN budget.</li>
+                                    <li>Elects members to other UN bodies (including non-permanent Security Council members).</li>
+                                    <li>Passes resolutions (statements/decisions).</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-slate-800 mb-2">Non-binding resolutions (meaning)</h4>
+                                <p class="text-sm text-slate-700 mb-2">A <span class="term" data-def="A resolution that is not legally enforceable, expressing opinions or recommendations rather than commands">non-binding resolution</span> is not legally enforceable. Countries are not legally required to follow it the way they must follow a treaty or a binding Security Council decision.</p>
+                                <p class="text-sm text-slate-600 mb-2">However, non-binding resolutions can still matter because they:</p>
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside ml-4">
+                                    <li>show global opinion or international pressure</li>
+                                    <li>guide future treaties and national policies</li>
+                                    <li>influence what is considered normal/acceptable behavior internationally</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm">Real-life examples:</h4>
+                                <ul class="text-sm text-slate-700 space-y-1">
+                                    <li>• Adoption of the Universal Declaration of Human Rights (1948) (not a treaty, but highly influential).</li>
+                                    <li>• Adoption of major global goals and frameworks that guide development priorities worldwide.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organ 2: Security Council -->
+                    <div class="border border-slate-200 rounded-xl overflow-hidden">
+                        <div class="bg-red-50 p-4 border-b border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-red-600 text-white rounded-lg flex items-center justify-center font-bold">2</div>
+                                <h3 class="text-lg font-bold text-slate-900">Security Council (UNSC)</h3>
+                            </div>
+                        </div>
+                        <div class="p-5 space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Definition & composition</h4>
+                                <p class="text-slate-700 mb-3">The organ responsible for maintaining international peace and security.</p>
+                                <div class="grid grid-cols-2 gap-4 mb-3">
+                                    <div class="bg-slate-100 p-3 rounded-lg text-center">
+                                        <div class="text-2xl font-bold text-slate-900">5</div>
+                                        <div class="text-xs text-slate-600">Permanent members (P5)</div>
+                                        <div class="text-xs text-slate-500 mt-1">US, UK, France, China, Russia</div>
+                                    </div>
+                                    <div class="bg-slate-100 p-3 rounded-lg text-center">
+                                        <div class="text-2xl font-bold text-slate-900">10</div>
+                                        <div class="text-xs text-slate-600">Non-permanent members</div>
+                                        <div class="text-xs text-slate-500 mt-1">Rotating seats</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                                <p class="text-sm font-semibold text-amber-900">Core distinction:</p>
+                                <p class="text-sm text-amber-800">Strongest UN organ for peace/security decisions: can issue binding decisions, authorize sanctions, and authorize military or peacekeeping action.</p>
+                            </div>
+                            <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-red-900 mb-2">Veto power (meaning)</h4>
+                                <p class="text-sm text-slate-700 mb-2">The <span class="term" data-def="The power of a permanent member to block a substantive resolution unilaterally">veto</span> is a special power held by the 5 permanent members.</p>
+                                <p class="text-sm text-slate-700">If any one of them votes "no" on a major (substantive) resolution, it can block the resolution even if many others support it.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-3">How the 10 non-permanent (rotating) members are chosen and voted</h4>
+                                <div class="space-y-3">
+                                    <div class="flex gap-3">
+                                        <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold flex-shrink-0">1</div>
+                                        <div>
+                                            <p class="font-medium text-slate-900 text-sm">What "rotating" means:</p>
+                                            <p class="text-sm text-slate-600">The 10 seats are not permanent; different countries take turns serving. Each serves a 2-year term. Elections are designed to ensure geographic representation (so regions of the world have a chance to be represented).</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-3">
+                                        <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold flex-shrink-0">2</div>
+                                        <div>
+                                            <p class="font-medium text-slate-900 text-sm">How they are elected (voted):</p>
+                                            <p class="text-sm text-slate-600">They are elected by the General Assembly. Voting is done by UN member states in the General Assembly. A country must typically win a two-thirds majority of the General Assembly members present and voting to get elected.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 bg-slate-100 p-3 rounded-lg">
+                                    <p class="text-xs font-semibold text-slate-700 mb-2">Seats are allocated by region:</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 bg-white rounded text-xs text-slate-600 border">Africa</span>
+                                        <span class="px-2 py-1 bg-white rounded text-xs text-slate-600 border">Asia-Pacific</span>
+                                        <span class="px-2 py-1 bg-white rounded text-xs text-slate-600 border">Latin America and the Caribbean</span>
+                                        <span class="px-2 py-1 bg-white rounded text-xs text-slate-600 border">Western Europe and Others</span>
+                                        <span class="px-2 py-1 bg-white rounded text-xs text-slate-600 border">Eastern Europe</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm">Real-life examples of function:</h4>
+                                <ul class="text-sm text-slate-700 space-y-1">
+                                    <li>• Authorizing peacekeeping missions in conflict areas.</li>
+                                    <li>• Imposing sanctions on groups or governments considered threats to peace.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organ 3: ECOSOC -->
+                    <div class="border border-slate-200 rounded-xl overflow-hidden">
+                        <div class="bg-green-50 p-4 border-b border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-green-600 text-white rounded-lg flex items-center justify-center font-bold">3</div>
+                                <h3 class="text-lg font-bold text-slate-900">Economic and Social Council (ECOSOC)</h3>
+                            </div>
+                        </div>
+                        <div class="p-5 space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Definition & composition</h4>
+                                <p class="text-slate-700">Composed of 54 member states elected by the General Assembly (terms are typically 3 years).</p>
+                            </div>
+                            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                                <p class="text-sm font-semibold text-amber-900">Core distinction:</p>
+                                <p class="text-sm text-amber-800">Focuses on economic and social development and coordination across UN agencies.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Functions</h4>
+                                <ul class="space-y-1 text-sm text-slate-700 list-disc list-inside">
+                                    <li>Coordinates work on poverty, education, health, jobs, inequality.</li>
+                                    <li>Works with UN specialized agencies and NGOs.</li>
+                                    <li>Helps follow up and coordinate global development plans.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-3 rounded-lg">
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm">Real-life example:</h4>
+                                <p class="text-sm text-slate-700">Organizes the <span class="term" data-def="A UN platform for follow-up and review of the 2030 Agenda for Sustainable Development and the Sustainable Development Goals">High-Level Political Forum (HLPF)</span> where countries review progress on the Sustainable Development Goals (SDGs).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organ 4: ICJ -->
+                    <div class="border border-slate-200 rounded-xl overflow-hidden">
+                        <div class="bg-purple-50 p-4 border-b border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-purple-600 text-white rounded-lg flex items-center justify-center font-bold">4</div>
+                                <h3 class="text-lg font-bold text-slate-900">International Court of Justice (ICJ)</h3>
+                            </div>
+                        </div>
+                        <div class="p-5 space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Definition & composition</h4>
+                                <p class="text-slate-700">The main judicial organ of the UN. Located in The Hague, Netherlands. Has 15 judges elected for 9-year terms by the General Assembly and Security Council.</p>
+                            </div>
+                            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                                <p class="text-sm font-semibold text-amber-900">Core distinction:</p>
+                                <p class="text-sm text-amber-800">Handles legal disputes between states (not individuals).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Functions</h4>
+                                <ul class="space-y-1 text-sm text-slate-700 list-disc list-inside">
+                                    <li>Settles disputes about borders, treaties, sovereignty, and international law.</li>
+                                    <li>Gives advisory opinions when asked by UN bodies.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 p-3 rounded-lg">
+                                <h4 class="font-sem3 rounded-lg">
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm">Real-life example:</h4>
+                                <p class="text-sm text-slate-700">The ICJ decided the Nigeria–Cameroon territorial case involving the Bakassi Peninsula.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organ 5: Secretariat -->
+                    <div class="border border-slate-200 rounded-xl overflow-hidden">
+                        <div class="bg-orange-50 p-4 border-b border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-orange-600 text-white rounded-lg flex items-center justify-center font-bold">5</div>
+                                <h3 class="text-lg font-bold text-slate-900">Secretariat</h3>
+                            </div>
+                        </div>
+                        <div class="p-5 space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Definition & composition</h4>
+                                <p class="text-slate-700">The administrative and operational arm of the UN. Led by the <span class="term" data-def="The chief administrative officer of the UN, appointed by the General Assembly on recommendation of the Security Council">Secretary-General</span> and staffed by international civil servants worldwide.</p>
+                            </div>
+                            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                                <p class="text-sm font-semibold text-amber-900">Core distinction:</p>
+                                <p class="text-sm text-amber-800">Implements and runs UN work day-to-day (it does not vote like the GA or UNSC).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Functions</h4>
+                                <ul class="space-y-1 text-sm text-slate-700 list-disc list-inside">
+                                    <li>Organizes UN meetings and conferences.</li>
+                                    <li>Produces reports and research.</li>
+                                    <li>Helps manage peacekeeping, humanitarian response, and UN programs.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-50 p-3 rounded-lg">
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm">Real-life example:</h4>
+                                <p class="text-sm text-slate-700">Supports major UN conferences and ongoing coordination for climate and humanitarian initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organ 6: Trusteeship Council -->
+                    <div class="border border-slate-200 rounded-xl overflow-hidden">
+                        <div class="bg-gray-50 p-4 border-b border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-gray-600 text-white rounded-lg flex items-center justify-center font-bold">6</div>
+                                <h3 class="text-lg font-bold text-slate-900">Trusteeship Council</h3>
+                            </div>
+                        </div>
+                        <div class="p-5 space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Definition & composition</h4>
+                                <p class="text-slate-700">Created to supervise <span class="term" data-def="Territories placed under UN oversight to guide them toward self-government or independence">trust territories</span> (former colonies/territories placed under UN oversight) to guide them toward self-government or independence.</p>
+                            </div>
+                            <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                                <p class="text-sm font-semibold text-amber-900">Core distinction:</p>
+                                <p class="text-sm text-amber-800">It had a specific historical mission (decolonization) and is now largely inactive.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800 mb-2 text-sm uppercase tracking-wide text-slate-500">Functions (historical)</h4>
+                                <ul class="space-y-1 text-sm text-slate-700 list-disc list-inside">
+                                    <li>Monitored progress of trust territories.</li>
+                                    <li>Reviewed reports and conducted missions.</li>
+                                    <li>Encouraged steps toward independence.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg border border-gray-300">
+                                <h4 class="font-semibold text-slate-800 mb-2">Last trust territory (meaning and example)</h4>
+                                <p class="text-sm text-slate-700 mb-2">The "last trust territory" means the final territory still under UN trusteeship supervision.</p>
+                                <p class="text-sm text-slate-700"><span class="term" data-def="An island nation in the Pacific, the last trust territory to gain independence in 1994">Palau</span> was the last trust territory; it became independent in 1994.</p>
+                                <p class="text-sm text-slate-600 mt-2 italic">After Palau's independence, the Trusteeship Council suspended regular operations.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Summary Table -->
+                    <div class="mt-8 bg-slate-50 rounded-xl p-6 border border-slate-200">
+                        <h3 class="text-lg font-bold text-slate-900 mb-4 serif-heading">Quick Core Distinctions Summary</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b-2 border-slate-300">
+                                        <th class="text-left py-2 font-semibold text-slate-900">Organ</th>
+                                        <th class="text-left py-2 font-semibold text-slate-900">Key Features</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200">
+                                    <tr>
+                                        <td class="py-3 font-medium text-blue-700">General Assembly</td>
+                                        <td class="py-3 text-slate-700">One state = one vote; global forum; non-binding resolutions.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium text-red-700">Security Council</td>
+                                        <td class="py-3 text-slate-700">Peace/security; binding decisions; veto power; 10 seats rotate via election.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium text-green-700">ECOSOC</td>
+                                        <td class="py-3 text-slate-700">Development and social/economic coordination.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium text-purple-700">ICJ</td>
+                                        <td class="py-3 text-slate-700">Legal disputes between states.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium text-orange-700">Secretariat</td>
+                                        <td class="py-3 text-slate-700">Implements UN work and operations.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-medium text-gray-700">Trusteeship Council</td>
+                                        <td class="py-3 text-slate-700">Decolonization body; inactive after 1994.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-slate-500 text-sm">
+        <p>Global Governance and the United Nations — Interactive Study Guide</p>
+        <p class="mt-1 text-xs">Hover over dotted terms for definitions • Use navigation to jump between sections</p>
+    </footer>
+
+    <script>
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+            
+            // Update active nav pill based on scroll position
+            updateActiveNav();
+        });
+
+        // Navigation functionality
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            const offset = 100; // Account for sticky header
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        function updateActiveNav() {
+            const sections = ['intro', 'governance', 'treaties', 'npt', 'un', 'league', 'organs'];
+            const scrollPos = window.scrollY + 150;
+            
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const top = element.offsetTop;
+                    const bottom = top + element.offsetHeight;
+                    
+                    if (scrollPos >= top && scrollPos < bottom) {
+                        document.querySelectorAll('.nav-pill').forEach(pill => {
+                            pill.classList.remove('active');
+                            if (pill.getAttribute('onclick').includes(section)) {
+                                pill.classList.add('active');
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        // Collapsible sections - FIXED VERSION
+        function toggleSection(contentId, header) {
+            const content = document.getElementById(contentId);
+            const chevron = header.querySelector('.chevron');
+            const isCollapsed = content.getAttribute('data-collapsed') === 'true';
+            
+            if (isCollapsed) {
+                // Expand
+                content.style.display = 'block';
+                content.setAttribute('data-collapsed', 'false');
+                chevron.classList.remove('rotated');
+            } else {
+                // Collapse
+                content.style.display = 'none';
+                content.setAttribute('data-collapsed', 'true');
+                chevron.classList.add('rotated');
+            }
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const content = document.querySelectorAll('section p, section li, section h3, section h4');
+            
+            // Remove previous highlights
+            document.querySelectorAll('.highlight-match').forEach(el => {
+                el.classList.remove('highlight-match');
+            });
+            
+            if (searchTerm.length < 2) return;
+            
+            content.forEach(element => {
+                if (element.textContent.toLowerCase().includes(searchTerm)) {
+                    element.classList.add('highlight-match');
+                    // Expand parent section if collapsed
+                    const section = element.closest('.collapsible-content');
+                    if (section && section.getAttribute('data-collapsed') === 'true') {
+                        const header = section.previousElementSibling;
+                        if (header) toggleSection(section.id, header);
+                    }
+                }
+            });
+        });
+
+        // Mobile touch support for tooltips
+        document.querySelectorAll('.term').forEach(term => {
+            term.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Remove active class from all other terms
+                document.querySelectorAll('.term').forEach(t => {
+                    if (t !== this) t.classList.remove('active');
+                });
+                // Toggle active class on clicked term
+                this.classList.toggle('active');
+            });
+        });
+
+        // Close tooltips when clicking elsewhere
+        document.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('term')) {
+                document.querySelectorAll('.term').forEach(t => {
+                    t.classList.remove('active');
+                });
+            }
+        });
+
+        // Initialize all sections as expanded
+        document.querySelectorAll('.collapsible-content').forEach(content => {
+            content.setAttribute('data-collapsed', 'false');
+            content.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
